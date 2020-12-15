@@ -46,3 +46,7 @@ a:link {
 a:hover {
   background-color: white;
 }
+
+a:visited {
+  color: #ed5b07;
+}

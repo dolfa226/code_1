@@ -7,6 +7,11 @@ SPIRAL
 
 */
 
+//background slider
+let sizeColor = 0;
+let sizeSlider;
+
+//type slider
 let typeColor = 0;
 let typeSlider;
 
@@ -25,18 +30,22 @@ function setup(){
   const labelStartX = 820;
   
   const typeLabel = createDiv("Color");
+  const sizeLabel = createDiv("Size");
   
   typeLabel.position(labelStartX, labelStartY);
+  sizeLabel.position(labelStartX, labelStartY + labelSpace);
   
   const sliderSpace = 50;
   typeSlider = createSlider(0, 255, 30, 1);
+  sizeSlider = createSlider(0, 100, 30, 1);
   
   typeSlider.position(labelStartX + sliderSpace, labelStartY)
+  sizeSlider.position(labelStartX + sliderSpace, labelStartY + labelSpace);
 }
 
 
 function draw(){
-    
+  
   var x = offset + cos(angle) * scalar;
   var y = offset + sin(angle) * scalar;
   
@@ -44,7 +53,8 @@ function draw(){
   fill(typeSlider.value());
   type = typeSlider.value();
 
-  textSize(ts);
+  textSize(sizeSlider.value());
+  
   text('SPIRAL', x, y)
 
   angle += speed;
